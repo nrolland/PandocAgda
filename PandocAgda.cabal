@@ -1,0 +1,38 @@
+name:            PandocAgda
+version:         2.4.3
+cabal-version:   >= 1.8
+build-type:      Simple
+license:         BSD3
+license-file:    LICENSE
+author:          Péter Diviánszky
+maintainer:      Péter Diviánszky <divipp@gmail.com>
+category:        Dependent types
+synopsis:        Pandoc support for literate Agda
+description:
+  Agda is a dependently typed functional programming language
+  and a proof assistant.
+  .
+  This package contains a modified Agda compiler which
+  process comments in literate Agda files with Pandoc.
+  Pandoc is a universal document converter.
+tested-with:        GHC == 7.8.4
+extra-source-files: README
+                    CHANGES
+data-dir:           data
+data-files:         Agda.template
+                    Agda.css
+
+source-repository head
+  type:     git
+  location: https://github.com/divipp/PandocAgda
+
+executable agdapandoc
+  main-is:          PandocAgda.hs
+  build-depends:    base >= 4.2 && < 4.8,
+                    transformers == 0.4.*,
+                    xhtml == 3000.2.*,
+                    pandoc-types == 1.12.*,
+                    pandoc == 1.13.*,
+                    Agda == 2.4.3
+  ghc-options:      -rtsopts -Wall
+  ghc-prof-options: -auto-all

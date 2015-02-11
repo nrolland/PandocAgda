@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>PandocAgda Example</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="Agda.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">PandocAgda Example</h1>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#pandoc-markdown-basics">Pandoc Markdown basics</a><ul>
+<li><a href="#headers">Headers</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#inline-formatting">Inline formatting</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+<li><a href="#pandocagda-specific-markup">PandocAgda Specific Markup</a><ul>
+<li><a href="#agda-code-blocks">Agda code blocks</a></li>
+<li><a href="#hyperlinked-identifiers">Hyperlinked identifiers</a></li>
+<li><a href="#external-modules">External modules</a></li>
+<li><a href="#hiding-agda-code">Hiding Agda code</a></li>
+</ul></li>
+<li><a href="#compilation">Compilation</a></li>
+</ul>
+</div>
+<h1 id="pandoc-markdown-basics">Pandoc Markdown basics</h1>
+<h2 id="headers">Headers</h2>
+<p>A setext-style header is a line of text &quot;underlined&quot; with a row of <code>=</code> signs (for a level one header) or <code>-</code> signs (for a level two header):</p>
+<pre><code>A level-one header
+==================
+
+A level-two header
+------------------</code></pre>
+<p>For more options on headers look at <a href="http://johnmacfarlane.net/pandoc/README.html#headers">the relevant section in Pandoc User's Guide</a>.</p>
+<h2 id="lists">Lists</h2>
+<p>A simple bullet list can be made with</p>
+<pre><code>* one
+* two
+* three</code></pre>
+<p>Result:</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+<p>For more options on lists look at <a href="http://johnmacfarlane.net/pandoc/README.html#lists">the relevant section in Pandoc User's Guide</a>.</p>
+<h2 id="inline-formatting">Inline formatting</h2>
+<p>To emphasize some text, surround it with <code>*</code>s or <code>_</code>, like this:</p>
+<pre><code>This text is _emphasized with underscores_, and this
+is *emphasized with asterisks*.
+This is `verbatim text`.</code></pre>
+<p>Result:</p>
+<p>This text is <em>emphasized with underscores</em>, and this is <em>emphasized with asterisks</em>. This is <code>verbatim text</code>.</p>
+<p>For more options on inline formatting look at <a href="http://johnmacfarlane.net/pandoc/README.html#inline-formatting">the relevant section in Pandoc User's Guide</a>.</p>
+<h2 id="links">Links</h2>
+<p>An inline link consists of the link text in square brackets, followed by the URL in parentheses. (Optionally, the URL can be followed by a link title, in quotes.)</p>
+<pre><code>This is an [inline link](/url), and here&#39;s [one with
+a title](http://fsf.org &quot;click here for a good time!&quot;).</code></pre>
+<p>For more options on links look at <a href="http://johnmacfarlane.net/pandoc/README.html#links">the relevant section in Pandoc User's Guide</a>.</p>
+<h1 id="pandocagda-specific-markup">PandocAgda Specific Markup</h1>
+<h2 id="agda-code-blocks">Agda code blocks</h2>
+<p>Agda code is surrounded by <code>\begin{code}</code> and <code>\end{code}</code> (usual literate Agda syntax).</p>
+<p>Result:</p>
+<p><pre
+><a name="1835"
+  >
+</a
+  ><a name="1850" class="Keyword"
+  >data</a
+  ><a name="1854"
+  > </a
+  ><a name="1855" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="1859"
+  > </a
+  ><a name="1860" class="Symbol"
+  >:</a
+  ><a name="1861"
+  > </a
+  ><a name="1862" class="PrimitiveType"
+  >Set</a
+  ><a name="1865"
+  > </a
+  ><a name="1866" class="Keyword"
+  >where</a
+  ><a name="1871"
+  >
+  </a
+  ><a name="1874" href="Simple.html#1874" class="InductiveConstructor"
+  >true</a
+  ><a name="1878"
+  >  </a
+  ><a name="1880" class="Symbol"
+  >:</a
+  ><a name="1881"
+  > </a
+  ><a name="1882" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="1886"
+  >
+  </a
+  ><a name="1889" href="Simple.html#1889" class="InductiveConstructor"
+  >false</a
+  ><a name="1894"
+  > </a
+  ><a name="1895" class="Symbol"
+  >:</a
+  ><a name="1896"
+  > </a
+  ><a name="1897" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ></pre
+></p>
+<h2 id="hyperlinked-identifiers">Hyperlinked identifiers</h2>
+<p>Identifiers are automatically hyperlinked (click on <code>Bool</code> below):</p>
+<p><pre
+><a name="2030"
+  >
+</a
+  ><a name="2045" href="Simple.html#2045" class="Function"
+  >not</a
+  ><a name="2048"
+  > </a
+  ><a name="2049" class="Symbol"
+  >:</a
+  ><a name="2050"
+  > </a
+  ><a name="2051" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="2055"
+  > </a
+  ><a name="2056" class="Symbol"
+  >&#8594;</a
+  ><a name="2057"
+  > </a
+  ><a name="2058" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="2062"
+  >
+</a
+  ><a name="2063" href="Simple.html#2045" class="Function"
+  >not</a
+  ><a name="2066"
+  > </a
+  ><a name="2067" href="Simple.html#1874" class="InductiveConstructor"
+  >true</a
+  ><a name="2071"
+  >  </a
+  ><a name="2073" class="Symbol"
+  >=</a
+  ><a name="2074"
+  > </a
+  ><a name="2075" href="Simple.html#1889" class="InductiveConstructor"
+  >false</a
+  ><a name="2080"
+  >
+</a
+  ><a name="2081" href="Simple.html#2045" class="Function"
+  >not</a
+  ><a name="2084"
+  > </a
+  ><a name="2085" href="Simple.html#1889" class="InductiveConstructor"
+  >false</a
+  ><a name="2090"
+  > </a
+  ><a name="2091" class="Symbol"
+  >=</a
+  ><a name="2092"
+  > </a
+  ><a name="2093" href="Simple.html#1874" class="InductiveConstructor"
+  >true</a
+  ></pre
+></p>
+<h2 id="external-modules">External modules</h2>
+<p>External modules are automatically loaded and built. You will notice this when you click on a hyperlinked identifier which is imported from an external module.</p>
+<h2 id="hiding-agda-code">Hiding Agda code</h2>
+<p>To hide Agda code, surround the code block by <code>&lt;!--</code> and <code>--&gt;</code>.</p>
+<p>Result:</p>
+<p><pre
+><a name="2415"
+  >
+</a
+  ><a name="2430" href="Simple.html#2430" class="Function Operator"
+  >_&#8743;_</a
+  ><a name="2433"
+  >   </a
+  ><a name="2436" class="Symbol"
+  >:</a
+  ><a name="2437"
+  > </a
+  ><a name="2438" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="2442"
+  > </a
+  ><a name="2443" class="Symbol"
+  >&#8594;</a
+  ><a name="2444"
+  > </a
+  ><a name="2445" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="2449"
+  > </a
+  ><a name="2450" class="Symbol"
+  >&#8594;</a
+  ><a name="2451"
+  > </a
+  ><a name="2452" href="Simple.html#1855" class="Datatype"
+  >Bool</a
+  ><a name="2456"
+  >  </a
+  ><a name="2458" class="Comment"
+  >-- the definition is hidden</a
+  ></pre
+></p>
+<h1 id="compilation">Compilation</h1>
+<p>Simple invocation of <code>agdapandoc</code>:</p>
+<pre><code>agdapandoc --html Simple.lagda</code></pre>
+<p>If external libraries are used and the source code is in a separate directory, invoke <code>agdapandoc</code> like</p>
+<pre><code>agdapandoc -i $(AGDALIB)/src/ -i src --html --css Agda.css src/Index.lagda</code></pre>
+</body>
+</html>
