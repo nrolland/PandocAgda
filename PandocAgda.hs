@@ -138,6 +138,7 @@ main = runTCMPrettyErrors $ do
                     , writerTableOfContents = True
                     , writerSlideVariant    = fromMaybe NoSlides $ optSlideVariant opts
                     , writerVariables       = [("css", css)]
+                    , writerHTMLMathMethod  = MathML Nothing
                     }
 
                 pageGen dir modname highlighting = generatePage gen dir modname
