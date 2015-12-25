@@ -1,23 +1,23 @@
 -- | PandocAgda.
-import Data.Maybe
-import Data.List
-import Text.XHtml.Strict
-import Control.Monad.IO.Class
-import System.Environment
-import System.Console.GetOpt
+import           Control.Monad.IO.Class
+import           Data.List
+import           Data.Maybe
+import           System.Console.GetOpt
+import           System.Environment
+import           Text.XHtml.Strict
 
-import Text.Pandoc.Definition
-import Text.Pandoc.Options
-import Text.Pandoc.Readers.Markdown
-import Text.Pandoc.Writers.HTML
+import           Text.Pandoc.Definition
+import           Text.Pandoc.Options
+import           Text.Pandoc.Readers.Markdown
+import           Text.Pandoc.Writers.HTML
 
-import Agda.Interaction.Options
-import Agda.Utils.IO.UTF8 (readTextFile)
-import Agda.Utils.Except (throwError)
-import Agda.Interaction.Highlighting.HTML hiding (generateHTML)
-import Agda.Main hiding (main)
+import           Agda.Interaction.Highlighting.HTML hiding (generateHTML)
+import           Agda.Interaction.Options
+import           Agda.Main                          hiding (main)
+import           Agda.Utils.Except                  (throwError)
+import           Agda.Utils.IO.UTF8                 (readTextFile)
 
-import Paths_PandocAgda
+import           Paths_PandocAgda
 
 -- | The name of the default template file for PandocAgda.
 defaultTemplateFile :: FilePath
@@ -81,7 +81,7 @@ pandocPage code' contents info
     . splitComment "\n\\begin{code}" . splitComment "\n\\end{code}"
     $ info
  where
-    Pandoc metainfo md = readMarkdown def contents 
+    Right (Pandoc metainfo md) = readMarkdown def contents
 
     conv x = [Para [RawInline (Format "html") $ renderHtmlFragment $ pre << code' x]]
 

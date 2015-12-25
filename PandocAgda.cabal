@@ -28,11 +28,11 @@ source-repository head
 
 executable agdapandoc
   main-is:          PandocAgda.hs
-  build-depends:    base >= 4.2 && < 4.8,
+  build-depends:    base >= 4.2 && < 6,
                     transformers >= 0.3 && < 0.5,
                     xhtml == 3000.2.*,
                     pandoc-types == 1.12.*,
-                    pandoc == 1.13.*,
-                    Agda == 2.4.3
+                    pandoc >= 1.13,
+                    Agda == 2.4.2.5
   ghc-options:      -rtsopts -Wall
   ghc-prof-options: -auto-all
